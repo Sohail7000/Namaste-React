@@ -1,20 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./components/Header";
+import Body from "./components/Body";
 
-/*
- * Header
- * - Logo
- * - Nav Items
- * Body
- *   - Search
- *   - ResturantContainer
- *     -RestaurantCard
- * Footer
- *   - Copyright
- *   - Links
- *   - Address
- *   - Contact
- */
 const resList = [
   {
     info: {
@@ -375,27 +363,6 @@ const resList = [
   },
 ];
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/sites/2148159228/images/0a66b7-43b8-2d30-72d-7db3c6aff438_Food-Ordering-App-iOS-System-Design.png"
-        ></img>
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
 const RestaurantCard = (props) => {
   const { resData } = props;
   const {
@@ -422,19 +389,6 @@ const RestaurantCard = (props) => {
       <h4>{avgRatingString} rating</h4>
       <h4>{deliveryTime} mins</h4>
       <h4>{costForTwo}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {resList.map((restaurant,index) => (
-          <RestaurantCard key = {restaurant.info.id}resData={restaurant} />
-        ))}
-      </div>
     </div>
   );
 };

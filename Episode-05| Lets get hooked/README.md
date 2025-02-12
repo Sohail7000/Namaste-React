@@ -25,3 +25,19 @@
 Rollup vs Webpack
 Rollup Module JS (ES6)
 Webpack common JS
+
+
+/*
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ *   - Search
+ *   - ResturantContainer
+ *     -RestaurantCard
+ * Footer
+ *   - Copyright
+ *   - Links
+ *   - Address
+ *   - Contact
+ */

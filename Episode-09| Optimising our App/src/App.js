@@ -7,7 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 
-const AppLayout = () => {
+export const AppLayout = () => {
   return (
     <div className="app">
       <Header />
@@ -37,7 +37,6 @@ const AppLayout = () => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    sd
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Body />} />

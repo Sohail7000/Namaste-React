@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-export default Body = () => {
+const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -57,15 +57,16 @@ export default Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4">
           <input
             type="text"
             value={searchText}
             onChange={handleInputChange}
-            className="search-box"
+            className="border border-solid border-black rounded-xs"
           ></input>
           <button
+            className="px-5 py-2 m-4 bg-green-100 rounded-lg "
             onClick={() => {
               handleSubmit();
             }}
@@ -73,20 +74,22 @@ export default Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() =>
-            setFilteredRestaurants(
-              listOfRestaurants.filter(
-                (restaurant) => restaurant.info.avgRating > 4.3
+        <div className=" search m-4 p-4">
+          <button
+            className="px-4 py-2 m-4 bg-green-100 rounded-lg"
+            onClick={() =>
+              setFilteredRestaurants(
+                listOfRestaurants.filter(
+                  (restaurant) => restaurant.info.avgRating > 4.3
+                )
               )
-            )
-          }
-        >
-          Top Rated Restaurant
-        </button>
+            }
+          >
+            Top Rated Restaurant
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant, index) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
@@ -94,3 +97,4 @@ export default Body = () => {
     </div>
   );
 };
+export default Body;
